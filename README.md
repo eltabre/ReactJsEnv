@@ -33,5 +33,26 @@ Now that we have setup our package.json correctly now we have to download many d
     
 A quick run down on what this command is doing: 
 
-    1. npm install --save, or -s, will install and save all of the following libraries as dependincies in your package.json file. If you go check it out the pacakage.json you should see a dependancies: {} with all of the libraires that we just installed!
-    2. 
+    1. npm install --save, or -s, will install and save all of the following libraries as dependincies
+    in your package.json file. If you go check it out the pacakage.json you should see a dependancies: {} 
+    with all of the libraires that we just installed!
+    2. react and react-dom are Javascript libraries for building user interfaces that were open-sourced by 
+    Facebook: https://facebook.github.io/react/index.html
+    3. babel-core is the main complier for Babel.  Babel is a complier for Javascript that you will need. 
+    more on Babel here: https://babeljs.io/
+    4. babel-loader is a plugin to make babel work with webpack, a module bundler that we will be using. 
+    5. babel-preset-es2015 and babel-preset-react are plugins for babel to make it work with ES6 and react
+
+Next we have to install webpack and babel, but we are going to do this so globally so that you can make multiple react projects easily. 
+
+    -npm install -g webpack webpack-dev-server babel-cli
+
+This command installs these packages globally. 
+
+###Making the files 
+Now that we have installed all of the libraries where they need to be we can start making the files. 
+
+      -touch index.html script.js webpack.config.js
+      -mkdir build
+
+These commands should make your "reactjsenv" directory mirror the directory that you will find the the master branch of this repository. So in each file that you made copy and paste the code from this repo into your files.  
