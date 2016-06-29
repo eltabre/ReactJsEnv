@@ -56,3 +56,35 @@ Now that we have installed all of the libraries where they need to be we can sta
       -mkdir build
 
 These commands should make your "reactjsenv" directory mirror the directory that you will find the the master branch of this repository. So in each file that you made copy and paste the code from this repo into your files.  
+
+###Explaing the Webpack file and polishing the package.json
+      module.exports = {
+         entry: './script.js',
+         output: {
+            path: __dirname + '/build',
+            publicPath: '/build/',
+            filename: 'bundle.js'
+      },
+      devServer: {
+         inline: true, 
+         port: 3000
+      },
+      module: {
+      loaders: [
+         {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel',
+            query: {
+               presets: ['es2015', 'react']
+             }
+         }
+         ]
+         }
+      }
+
+The module.exports portion of this file is where webpack will enter to begin the bundling process.  The output consists of where webpack will go put the bundled file and what the file name will be.  Dev server is where we specify what port we want the server to be on and if we want to reload changes on the fly.  The last part tells webpack to look at all of the files ending in a .js but to skip the node_modules folder when it does that.  Then we tell webpack what loader it should use.  
+
+Lastly, go into the package.json file and go to the portion that says scripts and delete the line that has been generated for you and insted put:
+      -"start": "webpack-dev-server"
+Now you should be able to start your server with the React.js enviorment by typing in npm start to your command prompt
